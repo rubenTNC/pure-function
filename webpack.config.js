@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
+  target: 'web',
   output: {
     path: path.resolve(__dirname, 'dist'),
   },
@@ -15,6 +16,12 @@ module.exports = {
         use: {
           loader: 'babel-loader',
         },
+      },
+      {
+        test: /\.html$/,
+        use: [{
+          loader: 'html-loader',
+        }],
       },
       {
         test: /\.css$/,
