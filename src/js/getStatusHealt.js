@@ -1,9 +1,13 @@
 export default function getStatusHealt(object) {
-  if (object.healt < 15) {
+  if (object.health < 15 && object.health > 0) {
     return 'critical';
   }
-  if (object.healt > 50) {
+  if (object.health >= 15 && object.health <= 50) {
+    return 'wounded';
+  }
+  if (object.health > 50) {
     return 'healthy';
   }
-  return 'wounded';
+
+  return null;
 }
